@@ -16,7 +16,7 @@ import argparse
 def quality_control(q,a):
     if " __ " in q or "____" in q or " _ " in q or " ___ " not in q:
         return False
-    if
+
 
 
 def add_info(q,a):

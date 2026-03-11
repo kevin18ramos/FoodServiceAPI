@@ -15,7 +15,8 @@ def test_connection():
         cursor = connection.cursor()
 
         # Run a simple query to verify the DB responds
-        cursor.execute("SELECT * from papasitos.table_one;")
+        # Running tests
+        cursor.execute("select * from postgresI.papasitos.table_one;")
 
         result = cursor.fetchone()
 
