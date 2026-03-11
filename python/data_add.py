@@ -14,21 +14,26 @@ import argparse
 # |_ planned_stages
 #   |_ q_a
 
-def quality_control(ps):
-    ...
+def quality_control(q,a):
+    if " __ " in q or "____" in q or " _ " in q or " ___ " not in q:
+        return False
+    else:
+        return True
 
-def add_info(ps,q_a):
+def add_info(q,a):
     # Use a breakpoint in the code line below to debug your script.
-    quality_control(ps)
+    x = quality_control(q,a)
 
 
-def add_info(ps,q_a):
+def add_info(q,a):
     # Use a breakpoint in the code line below to debug your script.
-    quality_control(ps, q_a)
+    if quality_control(q,a) == False:
+        print('Fail')
+        quit(0)
+        #quit
 
-
-def main(ps,q_a):
-    add_info(ps,q_a)
+def main(q,a):
+    add_info(q,a)
 
 
 # Press the green button in the gutter to run the script.
@@ -39,12 +44,14 @@ if __name__ == '__main__':
     parser.add_argument("--metadb", help="Metadata database.")
     parser.add_argument("--db_to_use", help="Database to use for the processing.")
     parser.add_argument("--env",help="env to use.",default="int")
-    parser.add_argument("-s3","--s3_source", help="S3 connection.", default=None)
+    parser.add_argument("--q","question")
+    parser.add_argument("--a","answer")
     source = parser.parse_args().__dict__["source"]
     db_to_use = parser.parse_args().__dict__["db_to_use"]
     metadb = parser.parse_args().__dict__["metadb"]
-    bucket_nm=parser.parse_args().__dict__["env"]
-    main()
+    q=parser.parse_args().__dict__["q"]
+    a = parser.parse_args().__dict__["a"]
+    main(q,a)
 
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
