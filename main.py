@@ -8,7 +8,7 @@ app = Flask(
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+    return render_template("question.html")
 
 
 @app.route("/questions_cad")
@@ -21,14 +21,14 @@ def questions_cad():
         "test4.png"
     ]
 
-    return render_template("question.html", images=images)
+    return render_template("question.html")
 
 @app.route("/login")
 def login():
     return "Login page coming soon"
 
 @app.route("/logout")
-def login():
+def logout():
     return "Login page coming soon"
 
 if __name__ == "__main__":

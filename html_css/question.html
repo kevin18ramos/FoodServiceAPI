@@ -1,20 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='frontend.css') }}">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='question.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='frontend.css') }}">
 
+</head>
 <body>
 
-{% include "navbar.html" %}
+    {% include "top_navbar.html" %}
 
-<main class="hero">
-    <h1>Welcome Home</h1>
-    <p>This is the home page.</p>
-</main>
+    <main class="questions-page">
+
+        <section class="question-layout">
+
+<textarea name="answer" class="question-box" rows="4" placeholder="Enter question in the following format format: My name is ___ (three _ underscores)"></textarea>
+</div>
+
+            <section class="answer-grid">
+
+    <textarea name="answer_1" class="answer-box {% if not answer_1_on %}display{% endif %}" rows="2" placeholder="{{ answer_1 }}">Creat correct question text/color</textarea>
+
+    <textarea name="answer_2" class="answer-box {% if not answer_2_on %}display{% endif %}" rows="2" placeholder="{{ answer_2 }}"></textarea>
+
+    <textarea name="answer_3" class="answer-box {% if not answer_3_on %}display{% endif %}" rows="2" placeholder="{{ answer_3 }}"></textarea>
+
+    <textarea name="answer_4" class="answer-box {% if not answer_4_on %}display{% endif %}" rows="2" placeholder="{{ answer_4 }}"></textarea>
+
+
+
+
+
+
+</section>
+
+        </section>
+
+    </main>
+
+    {% include "bottom_navbar.html" %}
 
 </body>
 </html>
