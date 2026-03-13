@@ -1,0 +1,72 @@
+/* Page background */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Navigation bar */
+
+.bottom-navbar {
+    display: flex;
+    align-items: center;
+    background-color: #808080;
+    padding: 15px 30px;
+}
+
+.bottom-navbar-bottom {
+    display: flex;
+    align-items: center;
+    background-color: #1f2937;
+    padding: 15px 30px;
+}
+
+
+.bottom-nav-left,
+.bottom-nav-center,
+.bottom-nav-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.bottom-nav-left {
+    justify-content: center;
+}
+
+.bottom-nav-center {
+    justify-content: center;
+}
+
+.bottom-nav-right {
+    justify-content: flex-end;
+}
+
+.bottom-nav-btn {
+    color: white;
+    text-decoration: none;
+    background-color: #374151;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.bottom-nav-btn:hover {
+    background-color: #4b5563;
+}
+
+/* Home page styling */
+
+.home-container {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.home-title {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.home-text {
+    font-size: 18px;
+    color: #555;
+}
