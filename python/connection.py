@@ -2,8 +2,9 @@ import psycopg2
 from psycopg2 import OperationalError
 from psycopg2 import pool
 
-USER ='kramos'
-PASSWORD ='1102359KeRa%'
+
+USER ='readonly_test'
+PASSWORD ='t3st123'
 
 def test_connection():
     try:
