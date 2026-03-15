@@ -10,18 +10,18 @@ app = Flask(
 @app.route("/")
 def home():
     files = [
-        "quiz_1.txt",
-        "quiz_2.txt",
-        "quiz_3.txt",
-        "quiz_4.txt",
-        "quiz_5.txt",
-        "quiz_6.txt",
-        "quiz_7.txt"
+        "Table one",
+        "Table two",
+        "Bar one",
+        "Bar two"
     ]
-    return render_template("home.html", files=files)
+    return render_template("home.html", files=files,
+        show_edit=False,
+        show_restore=False,
+        show_add=False)
 
 
-@app.route("/quiz_prompt_selection", methods=["GET", "POST"])
+@app.route("/questions_cad", methods=["GET", "POST"])
 def questions_cad():
     if request.method == "POST":
         q = request.form.get("q")
@@ -55,8 +55,30 @@ def create_account():
         password = request.form.get("password")
     return render_template("create_account.html")
 
-@app.route("/questions_cad", methods=["GET", "POST"])
+@app.route("/quiz_prompt_selection", methods=["GET", "POST"])
 def quiz_prompt_selection():
+    if request.method == "POST":
+        pt = request.form.get("question_title")
+        category = request.form.get("question_category")
+        q_style = request.form.get("answer_style")
+        a_am = request.form.get("answer_count")
+        q_am = request.form.get("blank_count")
+
+        #category: ingredient
+        #answer_count: true_false
+        #category: amount
+        #answer_count: fill_blank
+
+        return render_template(
+            "question.html",
+            pt=pt,
+            category=category,
+            q_style=q_style,
+            answer_count=int(a_am),
+            q_am=int(q_am)
+        )
+
+        return jsonify(result)
     return render_template("quiz_prompt_selection.html")
 
 def login():

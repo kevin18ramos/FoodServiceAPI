@@ -26,7 +26,7 @@
                             type="text"
                             id="question_title"
                             name="question_title"
-                            placeholder="Example: Bar Two"
+                            placeholder="Reuse or Create new - Example: Bar Two"
                         >
                     </div>
 
@@ -59,19 +59,19 @@
                             <label class="option-card">
                                 <input type="radio" name="answer_style" value="true_false" required>
                                 <span class="option-title">True or False</span>
-                                <span class="option-description">Example: A burger has 2oz pickles and 4oz lettuce. True or False?</span>
+                                <span class="option-description">Example: A burger has 100 oz pickles and 4oz lettuce. True or False?</span>
                             </label>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="answer_count">How Many Correct Answers? Max 4</label>
+                        <label for="answer_count">How Many Answer Choices? Max 6 - T/F category is not affected</label>
                         <input
                             type="number"
                             id="answer_count"
                             name="answer_count"
                             min="1"
-                            max="4"
+                            max="6"
                             value="1"
                             required
                         >
@@ -81,7 +81,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="blank_count">How Many Blanks? Max 4</label>
+                        <label for="blank_count">How Many Questions? Max 4</label>
                         <input
                             type="number"
                             id="blank_count"
@@ -127,12 +127,11 @@
 
                         <div class="example-block">
                             <h3>True or False</h3>
-                            <p><strong>Question:</strong> A burger contains ___ and lettuce.</p>
-                            <p><strong>Answers:</strong> Apple, onion, nuggets, pineapple</p>
+                            <p><strong>Question:</strong> A burger contains onion and lettuce.</p>
                             <p><strong>Correct Answer(s):</strong> 1</p>
-                            <p><strong>Output:</strong> A burger contains pineapple and lettuce.</p>
                             <p><strong>Type:</strong> Ingredient Based + True or False</p>
                         </div>
+
                     </div>
 
                     <div class="form-actions">

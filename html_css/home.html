@@ -36,12 +36,23 @@
     </div>
 </section>
 
-                <section class="action-panel">
-                    <a href="/quiz" class="action-btn">Take Quiz</a>
-                    <a href="/edit" class="action-btn">Edit
-                    <a href="/questions_cad" class="action-btn">Create Quiz</a>
-                    <a href="/restore_default" class="action-btn">Restore {{project_name}} Default</a>
-                </section>
+     <section class="action-panel">
+    <a href="/quiz" class="action-btn">Take Quiz</a>
+    <a href="/questions_cad" class="action-btn">Multi-Quiz</a>
+
+    {% if show_edit %}
+        <a href="/edit" class="action-btn">Edit</a>
+    {% endif %}
+
+    {% if show_restore %}
+        <a href="/restore" class="action-btn">Restore Base Quiz</a>
+    {% endif %}
+
+    {% if show_add %}
+    <a href="/add" class="action-btn">Add question</a>
+    {% endif %}
+
+</section>
 
             </section>
 
