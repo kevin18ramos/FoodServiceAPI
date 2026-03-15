@@ -21,7 +21,7 @@ def home():
     return render_template("home.html", files=files)
 
 
-@app.route("/questions_cad", methods=["GET", "POST"])
+@app.route("/quiz_prompt_selection", methods=["GET", "POST"])
 def questions_cad():
     if request.method == "POST":
         q = request.form.get("q")
@@ -46,7 +46,21 @@ def questions_cad():
 
 @app.route("/login")
 def login():
-    return "Login html"
+    return render_template("login.html")
+
+@app.route("/create_account" , methods=["GET", "POST"])
+def create_account():
+    if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
+    return render_template("create_account.html")
+
+@app.route("/questions_cad", methods=["GET", "POST"])
+def quiz_prompt_selection():
+    return render_template("quiz_prompt_selection.html")
+
+def login():
+    return render_template("login.html")
 
 @app.route("/logout")
 def logout():

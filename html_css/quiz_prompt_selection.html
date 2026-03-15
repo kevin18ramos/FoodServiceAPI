@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Prompt Selection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='quiz_prompt_selection.css') }}">
+</head>
+<body>
+
+    {% include "top_navbar.html" %}
+
+    <main class="quiz-selection-page">
+        <section class="quiz-selection-wrapper">
+            <div class="quiz-selection-card">
+                <h1 class="page-title">Quiz Prompt Selection</h1>
+                <p class="page-subtitle">
+                    Choose how the quiz prompt should be structured.
+                </p>
+
+                <form class="quiz-selection-form" method="POST" action="/quiz_prompt_selection">
+
+                    <div class="form-group">
+                        <label for="question_title">Prompt Title</label>
+                        <input
+                            type="text"
+                            id="question_title"
+                            name="question_title"
+                            placeholder="Example: Bar Two"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label>Question Category</label>
+                        <div class="option-grid two-col">
+                            <label class="option-card">
+                                <input type="radio" name="question_category" value="amount" required>
+                                <span class="option-title">Amount Based</span>
+                                <span class="option-description">Used for values like 3 oz, 5 oz, 2 cups, 4 pieces.</span>
+                            </label>
+
+                            <label class="option-card">
+                                <input type="radio" name="question_category" value="ingredient" required>
+                                <span class="option-title">Ingredient Based</span>
+                                <span class="option-description">Used for ingredients, names, items, or words in blanks.</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Answer Style</label>
+                        <div class="option-grid two-col">
+                            <label class="option-card">
+                                <input type="radio" name="answer_style" value="fill_blank" required>
+                                <span class="option-title">Fill in the Blank</span>
+                                <span class="option-description">Example: The 2 ingredients are ___ and lettuce.</span>
+                            </label>
+
+                            <label class="option-card">
+                                <input type="radio" name="answer_style" value="true_false" required>
+                                <span class="option-title">True or False</span>
+                                <span class="option-description">Example: A burger has 2oz pickles and 4oz lettuce. True or False?</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="answer_count">How Many Correct Answers? Max 4</label>
+                        <input
+                            type="number"
+                            id="answer_count"
+                            name="answer_count"
+                            min="1"
+                            max="4"
+                            value="1"
+                            required
+                        >
+                        <p class="input-help">
+                            Example: "The apple pie has ___ oz of apples and ___ oranges." The answer choices are 3,4,6,7. This would be 4 answer choices.
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="blank_count">How Many Blanks? Max 4</label>
+                        <input
+                            type="number"
+                            id="blank_count"
+                            name="blank_count"
+                            min="1"
+                            max="4"
+                            value="1"
+                            required
+                        >
+                        <p class="input-help">
+                            The apple pie has ___ oz of apples.” would be 1 blank.
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+    <label for="notes">Notes</label>
+    <textarea
+        id="notes"
+        name="notes"
+        rows="4"
+        readonly
+    >Incorrect answers for the quiz will be auto generated if all four choices are used. Ensure the question is properly filled out. Example: The MEDUIM steak is ___ oz. </textarea>
+</div>
+
+                    <div class="example-panel">
+                        <h2>Examples</h2>
+
+                        <div class="example-block">
+                            <h3>Amount Based</h3>
+                            <p><strong>Question:</strong> A small fries is ___ oz and a large fries is ___ oz.</p>
+                            <p><strong>Answers:</strong> 4, 2, 6, 7</p>
+                            <p><strong>Correct Answer(s):</strong> 2</p>
+                            <p><strong>Type:</strong> Amount Based + Fill in the Blank</p>
+                        </div>
+
+                        <div class="example-block">
+                            <h3>Ingredient Based</h3>
+                            <p><strong>Question:</strong> The 2 ingredients in a burger are ___ and lettuce.</p>
+                            <p><strong>Answers:</strong> Apple, onion, nuggets, pineapple</p>
+                            <p><strong>Correct Answer(s):</strong> 1</p>
+                            <p><strong>Type:</strong> Ingredient Based + Fill in the Blank</p>
+                        </div>
+
+                        <div class="example-block">
+                            <h3>True or False</h3>
+                            <p><strong>Question:</strong> A burger contains ___ and lettuce.</p>
+                            <p><strong>Answers:</strong> Apple, onion, nuggets, pineapple</p>
+                            <p><strong>Correct Answer(s):</strong> 1</p>
+                            <p><strong>Output:</strong> A burger contains pineapple and lettuce.</p>
+                            <p><strong>Type:</strong> Ingredient Based + True or False</p>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="primary-btn">Continue</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    {% include "bottom_navbar_home.html" %}
+
+</body>
+</html>
