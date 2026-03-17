@@ -17,8 +17,14 @@ def quality_control(q,a):
     if " __ " in q or "____" in q or " _ " in q or " ___ " not in q:
         return False
 
-def create_quiz(answ_one,answ_two,answ_three,answ_four):
-    ...
+def create_quiz(pt, category, q_style, a_am,q_am,qp,a1,a2,a3,a4):
+    questions
+    answer = {
+        "brand": "Ford",
+        "model": "Mustang",
+        "year": 1964
+    }
+    print(pt, category, q_style, a_am,q_am,qp,a1,a2,a3,a4)
 
 def add_info(q,a):
     # Use a breakpoint in the code line below to debug your script.

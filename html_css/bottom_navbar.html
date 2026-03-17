@@ -3,17 +3,13 @@
 <header class="bottom-navbar">
     <div class="bottom-navbar-box">
 
-        <form method="GET" action="/questions_cad">
-            <button type="submit" class="bottom-nav-btn bottom-nav-btn-reset">
-                Reset prompt
-            </button>
-        </form>
+        <a href="/questions_cad" class="bottom-nav-btn bottom-nav-btn-reset">
+            Reset prompt
+        </a>
 
-        <form method="POST" action="/save">
-            <button type="submit" class="bottom-nav-btn bottom-nav-btn-save">
-                Add to {{pt}}
-            </button>
-        </form>
+        <button type="submit" class="bottom-nav-btn bottom-nav-btn-save">
+            Add to {{ pt }}
+        </button>
 
     </div>
 </header>

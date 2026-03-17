@@ -21,6 +21,14 @@ function selectTF(value) {
 
 {% include "top_navbar.html" %}
 
+<form method="POST" action="/save">
+
+    <input type="hidden" name="pt" value="{{ pt }}">
+    <input type="hidden" name="category" value="{{ category }}">
+    <input type="hidden" name="q_style" value="{{ q_style }}">
+    <input type="hidden" name="a_am" value="{{ answer_count }}">
+    <input type="hidden" name="q_am" value="{{ q_am }}">
+
 <main class="questions-page">
 
 <section class="question-layout">
@@ -91,6 +99,6 @@ function selectTF(value) {
 </main>
 
 {% include "bottom_navbar.html" %}
-
+</form>
 </body>
 </html>
