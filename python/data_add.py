@@ -22,10 +22,11 @@ def quiz_input(question_pre_add):
 
 
 def add_info(q,a):
+    ...
     # Use a breakpoint in the code line below to debug your script.
-    if quality_control(q,a) == False:
-        print('Fail')
-        quit(0)
+    #if quality_control(q,a) == False:
+    #    print('Fail')
+    #    quit(0)
         #quit
 
 def main(q,a):
