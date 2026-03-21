@@ -1,6 +1,6 @@
 import argparse
 from gcc_postgres import task as t
-from gcc_postgres import cn as c
+from gcc_postgres import pcn as c
 #y = [['q']['a']['a'],['q']['a']['a']['a']]
 #dir = ['a'],['b'],['c'],['d']
 
