@@ -58,10 +58,7 @@ def questions_cad():
 @app.route("/save/complete", methods=["GET","POST"])
 def save_complete():
     # run whatever processing you want here
-    table = None
-    for x in question_pre_add:
-        table = x['pt'].strip().replace(" ", "_")
-    da.quiz_input(table,question_pre_add)
+    da.quiz_input(question_pre_add)
 
 
     return render_template("home.html",
