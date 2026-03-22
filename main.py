@@ -60,7 +60,7 @@ def save_complete():
     # run whatever processing you want here
     table = None
     for x in question_pre_add:
-        table = x['pt']
+        table = x['pt'].strip().replace(" ", "_")
     da.quiz_input(table,question_pre_add)
 
 
