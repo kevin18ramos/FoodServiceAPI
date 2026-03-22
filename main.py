@@ -96,7 +96,7 @@ def quiz_prompt_selection():
 
         return render_template(
             "question.html",
-            pt=pt,
+            pt=pt, #project title or location of files, that will be outputted to UI
             category=category,
             q_style=q_style,
             answer_count=int(a_am),
