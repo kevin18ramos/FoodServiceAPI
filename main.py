@@ -1,5 +1,7 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, session
 from python import data_add as da
+from python import backend as be
+
 
 db = 'PostgresI'
 group_name = 'papasitos'
@@ -9,6 +11,13 @@ app = Flask(
     template_folder="html_css",
     static_folder="html_css"
 )
+
+session_list = be.user_info(['user_id','username','role'])
+
+for v in session_list:
+    session['user_id'] = v[0]
+    session['username'] = v[1]
+    session['role'] = v[2]
 
 #pre_added_dir,question_pre_add = da.base_extract('schema.general_file')
 
@@ -145,9 +154,9 @@ def save():
         else:
             true_false_answer = False
 
-        # group_id = da.group_info()
+        group_id = be.group_info()
         group_id = 9999
-        # group_id = da.group_id()
+        group_id = be.group_id()
         user_id = 9999
 
         #print('project/dir name: ',pt)

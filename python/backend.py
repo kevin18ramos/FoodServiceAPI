@@ -5,3 +5,9 @@ def quality_control(q,a):
 def add_info(q,a):
     # Use a breakpoint in the code line below to debug your script.
     x = quality_control(q,a)
+
+def group_info():
+    ...
+
+def group_id():
+    ...
