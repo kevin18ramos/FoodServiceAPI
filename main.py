@@ -14,6 +14,8 @@ app = Flask(
 
 #stores questions info temp
 question_pre_add = []
+x = False
+y = 0
 #init load
 pre_added_dir = [
         "Table one",
@@ -34,6 +36,8 @@ def home():
 
 @app.route("/questions_cad", methods=["GET", "POST"])
 def questions_cad():
+    global x
+    print('/questions_cad x:', x)
     if request.method == "POST":
         q = request.form.get("q")
         answ_one = request.form.get("answ_one")
@@ -52,18 +56,24 @@ def questions_cad():
 
     return render_template(
     "question.html",
-    answer_count=4
+    answer_count=4,x=x
 )
 
-@app.route("/save/complete", methods=["GET","POST"])
+@app.route("/save/complete", methods=["GET", "POST"])
 def save_complete():
-    # run whatever processing you want here
+    global x, y
     da.quiz_input(question_pre_add)
+    x = False
+    y = 0
 
-
-    return render_template("home.html",
-                           files=pre_added_dir, show_edit=False, show_restore=False, show_add=False)
-
+    return render_template(
+        "home.html",
+        files=pre_added_dir,
+        show_edit=False,
+        show_restore=False,
+        show_add=False,
+        x=x
+    )
 
 @app.route("/login")
 def login():
@@ -78,37 +88,41 @@ def create_account():
 
 @app.route("/quiz_prompt_selection", methods=["GET", "POST"])
 def quiz_prompt_selection():
+    global x, y
+
     if request.method == "POST":
+        y += 1
+        x = True
+
         pt = request.form.get("question_title")
         category = request.form.get("question_category")
         q_style = request.form.get("answer_style")
         a_am = request.form.get("answer_count")
         q_am = request.form.get("blank_count")
 
-        #category: ingredient
-        #q_style: true_false
-        #category: amount
-        #q_style: fill_blank
-
-        if q_style == 'true_false':
+        if q_style == "true_false":
             a_am = 2
             q_am = 1
 
         return render_template(
             "question.html",
-            pt=pt, #project title or location of files, that will be outputted to UI
+            pt=pt,
             category=category,
             q_style=q_style,
             answer_count=int(a_am),
-            q_am=int(q_am) #will need to be coded
+            q_am=int(q_am),
+            x=x
         )
 
-
-    return render_template("quiz_prompt_selection.html",
-    pre_added_dir=pre_added_dir)
+    return render_template(
+        "quiz_prompt_selection.html",
+        pre_added_dir=pre_added_dir,
+        x=x
+    )
 
 @app.route("/save", methods=["GET", "POST"])
 def save():
+    global x
     if request.method == "POST":
         pt = request.form.get("pt") #project
         category = request.form.get("category") #ingredient or size
@@ -150,10 +164,6 @@ def save():
         #print('answera5 : ', a5)
         #print('answera6 : ', a6)
 
-
-
-
-
     answer = {
         "user_id":user_id,
         "group_id":group_id,
@@ -173,9 +183,7 @@ def save():
     }
 
     question_pre_add.append(answer)
-
-
-    return render_template("quiz_prompt_selection.html")
+    return render_template("quiz_prompt_selection.html",x=x)
 
 def login():
     return render_template("login.html")

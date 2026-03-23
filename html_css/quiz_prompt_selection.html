@@ -24,10 +24,13 @@
     <label for="question_title">Prompt Title</label>
 
     <select id="question_title" name="question_title">
-
+        {% if not pt %}
         {% for item in pre_added_dir %}
         <option value="{{ item }}">{{ item }}</option>
         {% endfor %}
+        {% else %}
+        <option value="{{ pt }}" selected>{{ pt }}</option>
+        {% endif %}
 
     </select>
 
